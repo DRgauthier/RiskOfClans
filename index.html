@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Base & Risk Game Prototype</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="ui-container">
+        <div id="tabs">
+            <button id="btn-home" class="active">Home Base</button>
+            <button id="btn-overworld">Overworld</button>
+        </div>
+        <div id="status-bar">Current View: <span id="current-view-text">Home Base</span></div>
+    </div>
+
+    <div id="game-container">
+        <canvas id="game-canvas"></canvas>
+    </div>
+
+    <!-- Future Supabase CDN include would go here -->
+    <script src="app.js"></script>
+</body>
+</html>
