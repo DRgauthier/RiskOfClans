@@ -1,25 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Base & Risk Game Prototype</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div id="ui-container">
-        <div id="tabs">
-            <button id="btn-home" class="active">Home Base</button>
-            <button id="btn-overworld">Overworld</button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RTS Game</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <!-- Game Container (Phaser attaches here) -->
+    <div id="game-container"></div>
+
+    <!-- UI Overlays -->
+    <div id="ui-layer">
+      <!-- Auth Screen -->
+      <div id="auth-screen" class="overlay-panel">
+        <h1>RTS Prototype</h1>
+        <div class="auth-form">
+          <input type="email" id="auth-email" placeholder="Email" />
+          <input type="password" id="auth-password" placeholder="Password" />
+          <div class="auth-buttons">
+            <button id="btn-login">Login</button>
+            <button id="btn-signup">Sign Up</button>
+          </div>
+          <p id="auth-message" class="error-msg"></p>
         </div>
-        <div id="status-bar">Current View: <span id="current-view-text">Home Base</span></div>
+      </div>
+
+      <!-- Main Game HUD -->
+      <div id="hud" class="hidden">
+        <div class="top-bar">
+          <div class="resources">
+            <span>Steel: <span id="res-steel">0</span> (<span id="rate-steel">+0</span>/s)</span>
+            <span>Oil: <span id="res-oil">0</span> (<span id="rate-oil">+0</span>/s)</span>
+          </div>
+          <div class="view-toggles">
+            <button id="btn-view-home" class="active">Home Base</button>
+            <button id="btn-view-overworld">Overworld</button>
+          </div>
+          <button id="btn-logout">Logout</button>
+        </div>
+
+        <!-- Build Menu (Only shown in Home Base view) -->
+        <div id="build-menu" class="side-panel">
+          <h3>Build Structures</h3>
+          <button class="build-btn" data-type="steel_mine">Steel Mine (50 Steel)</button>
+          <button class="build-btn" data-type="oil_pump">Oil Pump (100 Steel)</button>
+          <button class="build-btn" data-type="barracks">Barracks (150 Steel)</button>
+          <p class="hint">Click a button, then click on the grid to build.</p>
+        </div>
+      </div>
     </div>
 
-    <div id="game-container">
-        <canvas id="game-canvas"></canvas>
-    </div>
-
-    <!-- Future Supabase CDN include would go here -->
-    <script src="app.js"></script>
-</body>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
 </html>
